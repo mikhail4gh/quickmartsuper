@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 <body>
+    <div style="width: 100%; height: 100vh; display: flex; justify-content: center;">
     <div class="whole-con" style="width: 800px; background-color: white; height: 500px;">
         <div class="store-heading" style="background: linear-gradient(to right, #9655ED, #6335BC); width: 100%; text-align: center; padding-top: 8px; padding-bottom: 8px; border-radius: 10px; display: flex; justify-content: center; gap: 15px;">
            <span style="font-size: 45px; color: white;"><i class="fa-solid fa-cart-shopping"></i></span> <h3 style="font-size: 22px; letter-spacing: 0.5px; margin: 0; color: white;">QuickMart Supermarket <br> <span style="font-size: 18px; color: white;"> Billing System </span></h3>
@@ -83,21 +84,26 @@
             </div>
 
         </div>
-
+    </div>
     </div>
     <script>
         function calculateBill(){
+            // collecting all sales data
             let name = document.getElementById("productName").value;
             let price = Number(document.getElementById("itemPrice").value);
             let quantity = Number(document.getElementById("quantity").value);
             let discountPercentage = Number(document.getElementById("discount").value);
             let paid = Number(document.getElementById("amountPaid").value);
 
+
+            // sales data calculations
             let subtotal = price * quantity;
             let discountAmount = subtotal * discountPercentage / 100;
             let finalBill = subtotal - discountAmount;
             let change = paid - finalBill;
+            
 
+            // replacing datas with outcomes
             document.getElementById("goodsName").innerHTML = name;
             document.getElementById("prices").innerHTML = "&#8358;" + price;
             document.getElementById("quantityAmount"). innerHTML = quantity;
